@@ -2,7 +2,7 @@ import AssemblyKeys._
 
 assemblySettings
 
-name := "template-scala-parallel-classification"
+name := "template-scala-parallel-clustering"
 
 organization := "io.prediction"
 

@@ -1,17 +1,18 @@
 {
   "id": "default",
   "description": "Default settings",
-  "engineFactory": "org.template.classification.ClassificationEngine",
+  "engineFactory": "org.template.clustering.ClusteringEngine",
   "datasource": {
     "params": {
-      "appName": "INVALID_APP_NAME"
+      "appName": "Bo_Profile_Clustering_Test"
     }
   },
   "algorithms": [
     {
-      "name": "naive",
+      "name": "kmeans",
       "params": {
-        "lambda": 1.0
+        "numClusters": 2,
+        "numIterations": 500
       }
     }
   ]

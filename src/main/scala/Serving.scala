@@ -1,4 +1,4 @@
-package org.template.classification
+package org.template.clustering
 
 import io.prediction.controller.LServing
 

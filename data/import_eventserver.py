@@ -10,18 +10,16 @@ def import_events(client, file):
   count = 0
   print "Importing data..."
   for line in f:
-    data = line.rstrip('\r\n').split(",")
-    plan = data[0]
-    attr = data[1].split(" ")
+    data = line.rstrip('\r\n')
+    attr = data.split(" ")
     client.create_event(
       event="$set",
-      entity_type="user",
+      entity_type="profile",
       entity_id=str(count), # use the count num as user ID
       properties= {
         "attr0" : int(attr[0]),
         "attr1" : int(attr[1]),
-        "attr2" : int(attr[2]),
-        "plan" : int(plan)
+        "attr2" : int(attr[2])
       }
     )
     count += 1
@@ -31,7 +29,7 @@ def import_events(client, file):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(
     description="Import sample data for classification engine")
-  parser.add_argument('--access_key', default='invald_access_key')
+  parser.add_argument('--access_key', default='Hp3CTtxyXGSXbBpxP4QKqcOBKWKyCz200EeaZEjDDywyaBLoVhUa7JoZN3f8Viu4')
   parser.add_argument('--url', default="http://localhost:7070")
   parser.add_argument('--file', default="./data/data.txt")
 

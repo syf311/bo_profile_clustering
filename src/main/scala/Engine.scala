@@ -1,4 +1,4 @@
-package org.template.classification
+package org.template.clustering
 
 import io.prediction.controller.EngineFactory
 import io.prediction.controller.Engine
@@ -8,19 +8,19 @@ class Query(
 ) extends Serializable
 
 class PredictedResult(
-  val label: Double
+  val cluter: Int
 ) extends Serializable
 
 class ActualResult(
-  val label: Double
+  val cluster: Int
 ) extends Serializable
 
-object ClassificationEngine extends EngineFactory {
+object ClusteringEngine extends EngineFactory {
   def apply() = {
     new Engine(
       classOf[DataSource],
       classOf[Preparator],
-      Map("naive" -> classOf[NaiveBayesAlgorithm]),
+      Map("kmeans" -> classOf[KMeansAlgorithm]),
       classOf[Serving])
   }
 }
